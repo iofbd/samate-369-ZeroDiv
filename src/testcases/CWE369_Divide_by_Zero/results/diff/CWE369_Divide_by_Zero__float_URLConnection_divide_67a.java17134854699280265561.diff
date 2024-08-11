@@ -1,0 +1,15 @@
+--- /workspace/source/project/s02/CWE369_Divide_by_Zero__float_URLConnection_divide_67a.java
++++ /workspace/source/project/s02/CWE369_Divide_by_Zero__float_URLConnection_divide_67a.java
+@@ -30,7 +30,11 @@
+ {
+     static class Container
+     {
+-        public float containerOne;
++        private float containerOne;
++
++		public float getContainerOne() {
++			return containerOne;
++		}
+     }
+ 
+     public void bad() throws Throwable

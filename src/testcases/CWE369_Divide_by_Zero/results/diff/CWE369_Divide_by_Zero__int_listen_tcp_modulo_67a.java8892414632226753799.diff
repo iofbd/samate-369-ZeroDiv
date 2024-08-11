@@ -1,0 +1,15 @@
+--- /workspace/source/project/s03/CWE369_Divide_by_Zero__int_listen_tcp_modulo_67a.java
++++ /workspace/source/project/s03/CWE369_Divide_by_Zero__int_listen_tcp_modulo_67a.java
+@@ -32,7 +32,11 @@
+ {
+     static class Container
+     {
+-        public int containerOne;
++        private int containerOne;
++
++		public int getContainerOne() {
++			return containerOne;
++		}
+     }
+ 
+     public void bad() throws Throwable

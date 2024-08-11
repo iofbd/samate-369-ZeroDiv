@@ -1,0 +1,15 @@
+--- /workspace/source/project/s01/CWE369_Divide_by_Zero__float_connect_tcp_modulo_67a.java
++++ /workspace/source/project/s01/CWE369_Divide_by_Zero__float_connect_tcp_modulo_67a.java
+@@ -29,7 +29,11 @@
+ {
+     static class Container
+     {
+-        public float containerOne;
++        private float containerOne;
++
++		public float getContainerOne() {
++			return containerOne;
++		}
+     }
+ 
+     public void bad() throws Throwable

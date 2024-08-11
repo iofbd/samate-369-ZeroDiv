@@ -1,0 +1,29 @@
+--- /workspace/source/project/s01/CWE369_Divide_by_Zero__float_File_divide_67b.java
++++ /workspace/source/project/s01/CWE369_Divide_by_Zero__float_File_divide_67b.java
+@@ -22,7 +22,7 @@
+ {
+     public void badSink(CWE369_Divide_by_Zero__float_File_divide_67a.Container dataContainer ) throws Throwable
+     {
+-        float data = dataContainer.containerOne;
++        float data = dataContainer.getContainerOne();
+ 
+         /* POTENTIAL FLAW: Possibly divide by zero */
+         int result = (int)(100.0 / data);
+@@ -33,7 +33,7 @@
+     /* goodG2B() - use goodsource and badsink */
+     public void goodG2BSink(CWE369_Divide_by_Zero__float_File_divide_67a.Container dataContainer ) throws Throwable
+     {
+-        float data = dataContainer.containerOne;
++        float data = dataContainer.getContainerOne();
+ 
+         /* POTENTIAL FLAW: Possibly divide by zero */
+         int result = (int)(100.0 / data);
+@@ -44,7 +44,7 @@
+     /* goodB2G() - use badsource and goodsink */
+     public void goodB2GSink(CWE369_Divide_by_Zero__float_File_divide_67a.Container dataContainer ) throws Throwable
+     {
+-        float data = dataContainer.containerOne;
++        float data = dataContainer.getContainerOne();
+ 
+         /* FIX: Check for value of or near zero before dividing */
+         if (Math.abs(data) > 0.000001)

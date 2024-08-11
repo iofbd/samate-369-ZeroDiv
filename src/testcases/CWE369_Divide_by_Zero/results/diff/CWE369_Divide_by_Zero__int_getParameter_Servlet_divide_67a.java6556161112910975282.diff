@@ -1,0 +1,15 @@
+--- /workspace/source/project/s03/CWE369_Divide_by_Zero__int_getParameter_Servlet_divide_67a.java
++++ /workspace/source/project/s03/CWE369_Divide_by_Zero__int_getParameter_Servlet_divide_67a.java
+@@ -27,7 +27,11 @@
+ {
+     static class Container
+     {
+-        public int containerOne;
++        private int containerOne;
++
++		public int getContainerOne() {
++			return containerOne;
++		}
+     }
+ 
+     public void bad(HttpServletRequest request, HttpServletResponse response) throws Throwable

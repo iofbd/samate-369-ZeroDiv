@@ -1,0 +1,15 @@
+--- /workspace/source/project/s04/CWE369_Divide_by_Zero__int_zero_divide_67a.java
++++ /workspace/source/project/s04/CWE369_Divide_by_Zero__int_zero_divide_67a.java
+@@ -24,7 +24,11 @@
+ {
+     static class Container
+     {
+-        public int containerOne;
++        private int containerOne;
++
++		public int getContainerOne() {
++			return containerOne;
++		}
+     }
+ 
+     public void bad() throws Throwable
