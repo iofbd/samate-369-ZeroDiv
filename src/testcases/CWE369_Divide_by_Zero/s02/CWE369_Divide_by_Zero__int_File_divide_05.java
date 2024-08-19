@@ -16,6 +16,7 @@ Template File: sources-sinks-05.tmpl.java
 * */
 
 package testcases.CWE369_Divide_by_Zero.s02;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import javax.servlet.http.*;
@@ -57,7 +58,7 @@ public class CWE369_Divide_by_Zero__int_File_divide_05 extends AbstractTestCase
                     /* POTENTIAL FLAW: Read data from a file */
                     /* This will be reading the first "line" of the file, which
                      * could be very long if there are little or no newlines in the file */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) /* avoid NPD incidental warnings */
                     {
                         try
@@ -202,7 +203,7 @@ public class CWE369_Divide_by_Zero__int_File_divide_05 extends AbstractTestCase
                     /* POTENTIAL FLAW: Read data from a file */
                     /* This will be reading the first "line" of the file, which
                      * could be very long if there are little or no newlines in the file */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) /* avoid NPD incidental warnings */
                     {
                         try
@@ -309,7 +310,7 @@ public class CWE369_Divide_by_Zero__int_File_divide_05 extends AbstractTestCase
                     /* POTENTIAL FLAW: Read data from a file */
                     /* This will be reading the first "line" of the file, which
                      * could be very long if there are little or no newlines in the file */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) /* avoid NPD incidental warnings */
                     {
                         try

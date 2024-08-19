@@ -16,6 +16,7 @@ Template File: sources-sinks-06.tmpl.java
 * */
 
 package testcases.CWE369_Divide_by_Zero.s01;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import java.io.BufferedReader;
@@ -45,7 +46,7 @@ public class CWE369_Divide_by_Zero__float_console_readLine_divide_06 extends Abs
                 readerInputStream = new InputStreamReader(System.in, "UTF-8");
                 readerBuffered = new BufferedReader(readerInputStream);
                 /* POTENTIAL FLAW: Read data from the console using readLine */
-                String stringNumber = readerBuffered.readLine();
+                String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                 if (stringNumber != null) // avoid NPD incidental warnings
                 {
                     try
@@ -170,7 +171,7 @@ public class CWE369_Divide_by_Zero__float_console_readLine_divide_06 extends Abs
                 readerInputStream = new InputStreamReader(System.in, "UTF-8");
                 readerBuffered = new BufferedReader(readerInputStream);
                 /* POTENTIAL FLAW: Read data from the console using readLine */
-                String stringNumber = readerBuffered.readLine();
+                String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                 if (stringNumber != null) // avoid NPD incidental warnings
                 {
                     try
@@ -259,7 +260,7 @@ public class CWE369_Divide_by_Zero__float_console_readLine_divide_06 extends Abs
                 readerInputStream = new InputStreamReader(System.in, "UTF-8");
                 readerBuffered = new BufferedReader(readerInputStream);
                 /* POTENTIAL FLAW: Read data from the console using readLine */
-                String stringNumber = readerBuffered.readLine();
+                String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                 if (stringNumber != null) // avoid NPD incidental warnings
                 {
                     try
