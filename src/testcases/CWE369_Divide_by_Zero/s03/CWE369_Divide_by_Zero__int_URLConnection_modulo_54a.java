@@ -16,6 +16,7 @@ Template File: sources-sinks-54a.tmpl.java
  * */
 
 package testcases.CWE369_Divide_by_Zero.s03;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import javax.servlet.http.*;
@@ -50,7 +51,7 @@ public class CWE369_Divide_by_Zero__int_URLConnection_modulo_54a extends Abstrac
                 /* POTENTIAL FLAW: Read data from a web server with URLConnection */
                 /* This will be reading the first "line" of the response body,
                  * which could be very long if there are no newlines in the HTML */
-                String stringNumber = readerBuffered.readLine();
+                String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
 
                 if (stringNumber != null) // avoid NPD incidental warnings
                 {
@@ -138,7 +139,7 @@ public class CWE369_Divide_by_Zero__int_URLConnection_modulo_54a extends Abstrac
                 /* POTENTIAL FLAW: Read data from a web server with URLConnection */
                 /* This will be reading the first "line" of the response body,
                  * which could be very long if there are no newlines in the HTML */
-                String stringNumber = readerBuffered.readLine();
+                String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
 
                 if (stringNumber != null) // avoid NPD incidental warnings
                 {

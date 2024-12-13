@@ -16,6 +16,7 @@ Template File: sources-sinks-07.tmpl.java
 * */
 
 package testcases.CWE369_Divide_by_Zero.s02;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import java.io.BufferedReader;
@@ -51,7 +52,7 @@ public class CWE369_Divide_by_Zero__float_URLConnection_divide_07 extends Abstra
                     /* POTENTIAL FLAW: Read data from a web server with URLConnection */
                     /* This will be reading the first "line" of the response body,
                      * which could be very long if there are no newlines in the HTML */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null)
                     {
                         try
@@ -181,7 +182,7 @@ public class CWE369_Divide_by_Zero__float_URLConnection_divide_07 extends Abstra
                     /* POTENTIAL FLAW: Read data from a web server with URLConnection */
                     /* This will be reading the first "line" of the response body,
                      * which could be very long if there are no newlines in the HTML */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null)
                     {
                         try
@@ -275,7 +276,7 @@ public class CWE369_Divide_by_Zero__float_URLConnection_divide_07 extends Abstra
                     /* POTENTIAL FLAW: Read data from a web server with URLConnection */
                     /* This will be reading the first "line" of the response body,
                      * which could be very long if there are no newlines in the HTML */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null)
                     {
                         try
