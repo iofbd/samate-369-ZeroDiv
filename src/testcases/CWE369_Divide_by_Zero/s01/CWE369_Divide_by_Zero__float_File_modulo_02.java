@@ -16,6 +16,7 @@ Template File: sources-sinks-02.tmpl.java
 * */
 
 package testcases.CWE369_Divide_by_Zero.s01;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import java.io.BufferedReader;
@@ -48,7 +49,7 @@ public class CWE369_Divide_by_Zero__float_File_modulo_02 extends AbstractTestCas
                     /* POTENTIAL FLAW: Read data from a file */
                     /* This will be reading the first "line" of the file, which
                      * could be very long if there are little or no newlines in the file */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null)
                     {
                         try
@@ -192,7 +193,7 @@ public class CWE369_Divide_by_Zero__float_File_modulo_02 extends AbstractTestCas
                     /* POTENTIAL FLAW: Read data from a file */
                     /* This will be reading the first "line" of the file, which
                      * could be very long if there are little or no newlines in the file */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null)
                     {
                         try
@@ -300,7 +301,7 @@ public class CWE369_Divide_by_Zero__float_File_modulo_02 extends AbstractTestCas
                     /* POTENTIAL FLAW: Read data from a file */
                     /* This will be reading the first "line" of the file, which
                      * could be very long if there are little or no newlines in the file */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null)
                     {
                         try

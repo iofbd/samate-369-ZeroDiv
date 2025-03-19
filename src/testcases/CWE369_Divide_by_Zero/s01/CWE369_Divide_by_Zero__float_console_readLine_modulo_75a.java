@@ -16,6 +16,7 @@ Template File: sources-sinks-75a.tmpl.java
  * */
 
 package testcases.CWE369_Divide_by_Zero.s01;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutput;
@@ -45,7 +46,7 @@ public class CWE369_Divide_by_Zero__float_console_readLine_modulo_75a extends Ab
             readerBuffered = new BufferedReader(readerInputStream);
 
             /* POTENTIAL FLAW: Read data from the console using readLine */
-            String stringNumber = readerBuffered.readLine();
+            String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
 
             if (stringNumber != null) // avoid NPD incidental warnings
             {
@@ -212,7 +213,7 @@ public class CWE369_Divide_by_Zero__float_console_readLine_modulo_75a extends Ab
             readerBuffered = new BufferedReader(readerInputStream);
 
             /* POTENTIAL FLAW: Read data from the console using readLine */
-            String stringNumber = readerBuffered.readLine();
+            String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
 
             if (stringNumber != null) // avoid NPD incidental warnings
             {

@@ -16,6 +16,7 @@ Template File: sources-sinks-12.tmpl.java
 * */
 
 package testcases.CWE369_Divide_by_Zero.s01;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import java.io.BufferedReader;
@@ -48,7 +49,7 @@ public class CWE369_Divide_by_Zero__float_listen_tcp_modulo_12 extends AbstractT
                     readerInputStream = new InputStreamReader(socket.getInputStream(), "UTF-8");
                     readerBuffered = new BufferedReader(readerInputStream);
                     /* POTENTIAL FLAW: Read data using a listening tcp connection */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) // avoid NPD incidental warnings
                     {
                         try
@@ -206,7 +207,7 @@ public class CWE369_Divide_by_Zero__float_listen_tcp_modulo_12 extends AbstractT
                     readerInputStream = new InputStreamReader(socket.getInputStream(), "UTF-8");
                     readerBuffered = new BufferedReader(readerInputStream);
                     /* POTENTIAL FLAW: Read data using a listening tcp connection */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) // avoid NPD incidental warnings
                     {
                         try
@@ -299,7 +300,7 @@ public class CWE369_Divide_by_Zero__float_listen_tcp_modulo_12 extends AbstractT
                     readerBuffered = new BufferedReader(readerInputStream);
 
                     /* POTENTIAL FLAW: Read data using a listening tcp connection */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) // avoid NPD incidental warnings
                     {
                         try
