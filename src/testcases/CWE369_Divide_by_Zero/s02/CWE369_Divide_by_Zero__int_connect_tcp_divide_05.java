@@ -16,6 +16,7 @@ Template File: sources-sinks-05.tmpl.java
 * */
 
 package testcases.CWE369_Divide_by_Zero.s02;
+import io.github.pixee.security.BoundedLineReader;
 import testcasesupport.*;
 
 import javax.servlet.http.*;
@@ -55,7 +56,7 @@ public class CWE369_Divide_by_Zero__int_connect_tcp_divide_05 extends AbstractTe
                     readerInputStream = new InputStreamReader(socket.getInputStream(), "UTF-8");
                     readerBuffered = new BufferedReader(readerInputStream);
                     /* POTENTIAL FLAW: Read data using an outbound tcp connection */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) /* avoid NPD incidental warnings */
                     {
                         try
@@ -200,7 +201,7 @@ public class CWE369_Divide_by_Zero__int_connect_tcp_divide_05 extends AbstractTe
                     readerInputStream = new InputStreamReader(socket.getInputStream(), "UTF-8");
                     readerBuffered = new BufferedReader(readerInputStream);
                     /* POTENTIAL FLAW: Read data using an outbound tcp connection */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) /* avoid NPD incidental warnings */
                     {
                         try
@@ -307,7 +308,7 @@ public class CWE369_Divide_by_Zero__int_connect_tcp_divide_05 extends AbstractTe
                     readerInputStream = new InputStreamReader(socket.getInputStream(), "UTF-8");
                     readerBuffered = new BufferedReader(readerInputStream);
                     /* POTENTIAL FLAW: Read data using an outbound tcp connection */
-                    String stringNumber = readerBuffered.readLine();
+                    String stringNumber = BoundedLineReader.readLine(readerBuffered, 5_000_000);
                     if (stringNumber != null) /* avoid NPD incidental warnings */
                     {
                         try
